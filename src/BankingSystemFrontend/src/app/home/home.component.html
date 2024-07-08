@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .main {
+            background-image: url('https://drive.google.com/file/d/1ZeZWGzVI9fm-WtFMhtKMsVxzBmZTrAIX/viewhttps://drive.google.com/file/d/1ZeZWGzVI9fm-WtFMhtKMsVxzBmZTrAIX/view');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh; /* Ensure it covers the full viewport height */
+        }
+        .card-button {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .card-button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+<nav *ngIf="isLogin() || isRegister()" class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+        <div class="navbar-transparent" style="background-color: blue;">
+            <a class="navbar-brand" routerLink="/home">Banking System</a>
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
+                    data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
+                    aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" *ngIf="isLogin()">
+                    <a routerLink="register" class="nav-link"><i class="nc-icon nc-badge nav-icon"></i>Register</a>
+                </li>
+                <li class="nav-item" *ngIf="isRegister()">
+                    <a routerLink="login" class="nav-link"><i class="nc-icon nc-touch-id nav-icon"></i>Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<nav *ngIf="!(isLogin() || isRegister())" class="navbar navbar-expand-lg nav-margin fixed-top">
+    <div class="container">
+        <div class="navbar-default">
+            <a class="navbar-brand" routerLink="/home">Banking System</a>
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
+                    data-target="#navbarTogglerHome" aria-controls="navbarTogglerHome" aria-expanded="false"
+                    aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarTogglerHome">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a routerLink="profile" class="nav-link"><i class="nc-icon nc-single-02 nav-icon"></i>Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="account" class="nav-link"><i class="nc-icon nc-book-bookmark nav-icon"></i>Account</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="logout()" class="nav-link"><i class="nc-icon nc-lock-circle-open nav-icon"></i>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="wrapper">
+    <div class="main">
+        <div class="container">
+            <div class="header-margin"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tim-title text-center">
+                        <h2>Home</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <a routerLink="/account">
+                        <div class="card card-button bg-light">
+                            <h3 class="card-title ml-auto mr-auto mb-auto mt-auto">Check Balance</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 ">
+                    <a routerLink="/history">
+                        <div class="card card-button bg-light">
+                            <h3 class="card-title ml-auto mr-auto mt-auto mb-auto">Transaction History</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <a routerLink="/transfer">
+                        <div class="card card-button bg-light">
+                            <h3 class="card-title ml-auto mr-auto mt-auto mb-auto">Transfer Money</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a routerLink="/profile">
+                        <div class="card card-button bg-light">
+                            <h3 class="card-title ml-auto mr-auto mt-auto mb-auto">User Profile</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery, Popper.js, and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
